@@ -2,7 +2,7 @@
 
 [![Build Status](https://camo.githubusercontent.com/273b9129e7bb4dee23056cfea466054b6104b19a/68747470733a2f2f696d672e736869656c64732e696f2f7061636b61676973742f7068702d762f70657069706f73742f70657069706f73742d73646b2d7068702e7376673f7374796c653d666c61742d737175617265)](https://packagist.org/packages/pepipost/pepipost-sdk-php) [![Build Status](https://camo.githubusercontent.com/d95ea41d77480203395b62baa2979c7b83e26114/68747470733a2f2f696d672e736869656c64732e696f2f7061636b61676973742f6c2f70657069706f73742f70657069706f73742d73646b2d7068702e737667)](https://packagist.org/packages/pepipost/pepipost-sdk-php) [![Build Status](https://camo.githubusercontent.com/b52da95112b380731b1864a6f985718fce5822ba/68747470733a2f2f696d672e736869656c64732e696f2f747769747465722f666f6c6c6f772f706570695f706f73742e7376673f7374796c653d736f6369616c266c6162656c3d466f6c6c6f77)](https://twitter.com/pepi_post)
 
-# Webhook extension for sendy by [Pepipost](https://twitter.com/pepi_post)
+# Sendy webhook extension by [Pepipost](https://twitter.com/pepi_post)
 This is an extension for the Sendy platform which allows the user to track mailing reports using webhooks through pepipost emailing services.
 
 We are trying to make our libraries community driven and we need your help in building the right things the right way you. Your opinion is very much valued so please share comments, create [issues](#) and [pull](#) requests.
