@@ -21,7 +21,7 @@ The installation of the Sendy webhooks requires the exact same steps on both Lin
   - [PHP >=5.4.0](http://php.net/manual/en/install.php)
   - A [Sendy](https://sendy.co/) Installation on a preferred domain
   - A free account on Pepipost. If you don't have a one, click [here](https://app.pepipost.com/index.php/signup/registeruser?utm_campaign=GitHubSDK&utm_medium=GithubSDK&utm_source=GithubSDK) to signup and get 30,000 emails free every month.
-  - Pepipost SMTP Integration with sendy (Please click [here](#) for sendy integraton tutorial)
+  - Pepipost SMTP Integration with sendy (Please click [here](https://pepipost.com/tutorials/how-to-integrate-pepipost-smtp-with-sendy/) for sendy integraton tutorial)
 
 # Quick Start
 1. Check the PHP version using below command. Required PHP >=5.4.0.
@@ -31,11 +31,11 @@ The installation of the Sendy webhooks requires the exact same steps on both Lin
 2. Go to your Sendy installation directory
     For example, if your Sendy installation is inside var/www/html inside your server directory then.
     ```sh
-     $ cd /var/www/html
+    $ cd /var/www/html
     ```
 2. Clone this repository on your machine using below command:
     ```sh
-     $ git clone https://github.com/pepipost/pepipost_webhook.git webhooks
+    $ git clone https://github.com/pepipost/pepipost_webhook.git webhooks
     ```
 3. Go to the config file directory
     ```sh
