@@ -36,34 +36,35 @@ $webhooks_provider = "Pepipost";
 $HTTP_RAW_POST_DATA = @file_get_contents('php://input');
 $json_payload = urldecode($HTTP_RAW_POST_DATA);
 
-$event = json_decode($json_payload, true);
+$events = json_decode($json_payload, true);
+foreach ($events as $event) {
 
-if (filter_var($event['EMAIL'],FILTER_VALIDATE_EMAIL)) {
-    switch($event["EVENT"])
-    {
-        case "sent": event_send($event); break;
-        case "opened": event_open($event); break;
-        case "clicked": event_click($event); break;
-        case "bounced":
-            if($event['BOUNCE_TYPE'] === 'HARDBOUNCE') {
-                webhooks_hard_bounce($event['EMAIL']);
-            }
-            else {
-                webhooks_soft_bounce($event['EMAIL']);
-            }
-            break;
-        case "unsubscribed": event_unsubscribe($event); break;
-        case "abuse": webhooks_spam_report($event['EMAIL']);
-        case "dropped": event_dropped($event); break;
-        case "invalid": event_invalid($event); break;
-        default: webhooks_debug(" == Invalid category: '".$event["EVENT"]."' for: ".$event["EMAIL"]." ==");
-    }
-} else { // invalid email address
-    webhooks_debug(" == Invalid email address: '".$event['EMAIL']."' ==");
-} // if (filter_var($event["recipient"],FILTER_VALIDATE_EMAIL))
-
+    if (filter_var($event['EMAIL'],FILTER_VALIDATE_EMAIL)) {
+        switch($event["EVENT"])
+        {
+            case "sent": event_send($event); break;
+            case "opened": event_open($event); break;
+            case "clicked": event_click($event); break;
+            case "bounced":
+                if($event['BOUNCE_TYPE'] === 'HARDBOUNCE') {
+                    webhooks_hard_bounce($event['EMAIL']);
+                }
+                else {
+                    webhooks_soft_bounce($event['EMAIL']);
+                }
+                break;
+            case "unsubscribed": event_unsubscribe($event); break;
+            case "abuse": webhooks_spam_report($event['EMAIL']);
+            case "dropped": event_dropped($event); break;
+            case "invalid": event_invalid($event); break;
+            default: webhooks_debug(" == Invalid category: '".$event["EVENT"]."' for: ".$event["EMAIL"]." ==");
+        }
+    } else { // invalid email address
+        webhooks_debug(" == Invalid email address: '".$event['EMAIL']."' ==");
+    } // if (filter_var($event["recipient"],FILTER_VALIDATE_EMAIL))
+}
 //----------------------------------------------------------------------------------//
-//              MANDRILL EVENTS UNHANDLED BY WEBHOOKS
+//              PEPIPOST EVENTS UNHANDLED BY WEBHOOKS
 //----------------------------------------------------------------------------------//
     function event_open($event) {
         webhooks_debug("Email opened: " . $event['EMAIL'] . " (" . $event['TRANSID'] . ")\t(Currently unhandled by Webhooks)");
