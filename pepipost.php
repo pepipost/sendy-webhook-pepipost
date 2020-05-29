@@ -54,7 +54,7 @@ foreach ($events as $event) {
                 }
                 break;
             case "unsubscribed": event_unsubscribe($event); break;
-            case "spam": webhooks_spam_report($event['EMAIL']);
+            case "spam": webhooks_spam_report($event['EMAIL']); break;
             case "dropped": event_dropped($event); break;
             case "invalid": event_invalid($event); break;
             default: webhooks_debug(" == Invalid category: '".$event["EVENT"]."' for: ".$event["EMAIL"]." ==");
